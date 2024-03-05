@@ -5,5 +5,72 @@
 
 
 body {
-  /* background: red; */
+  background: #010200;
+}
+
+.calculator__grid {
+  @apply grid;
+  @apply auto-cols-fr auto-rows-fr;
+  /* @apply grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-4 xl:grid-rows-5; */
+  @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+  @apply gap-2;
+}
+
+.calculator {
+  @apply border border-red-900;
+}
+
+.calculator__new-btn {
+  @apply border border-white;
+  @apply col-end-auto;
+  @apply text-white;
+  @apply hover:bg-red-900;
+}
+
+.toolbar {
+  @apply p-2;
+  @apply flex justify-between;
+  @apply text-white;
+}
+
+.toolbar__title {
+  @apply text-white;
+}
+
+.output {
+  @apply h-16;
+  @apply p-2;
+  @apply bg-black/90;
+  @apply flex flex-col;
+  @apply break-all break-words;
+  word-wrap: break-word;
+}
+
+.output .previous__operand {
+  @apply text-[#EBEBEB];
+  @apply text-base;
+}
+
+.output .current__operand {
+  @apply text-white;
+  @apply text-xl;
+}
+
+.keypad {
+  @apply p-2;
+  @apply border-t-2 border-red-900;
+  @apply grid grid-cols-4 gap-1;
+}
+
+.key {
+  @apply text-xl;
+  /* @apply border border-white; */
+  @apply outline-none;
+  @apply transition-colors duration-300;
+  @apply bg-white/70 hover:bg-white/95;
+  @apply active:bg-gray-600 active:text-[1.75rem];
+}
+
+.key.eval {
+  @apply bg-white/95 hover:bg-red-200;
 }
