@@ -22,12 +22,9 @@ const App: React.FC = () => {
     setCalcs((prev) => [...prev, newCalc])
   };
 
-  const handleDeleteCalculator = (id: string) => {
-    setCalcs((prev) => [...prev.filter((calc) => calc.id !== id)]);
-  };
+  const handleDeleteCalculator = (id: string) => setCalcs((prev) => [...prev.filter((calc) => calc.id !== id)]);
 
-  // const handleNameUpdate = (id: string, name: string) => {
-  // }
+  const handleNameUpdate = (id: string, name: string) => setCalcs((prev) => prev.map((calc) => calc.id === id ? { ...calc, name } : calc));
 
   return (
     <React.Fragment>
@@ -36,6 +33,7 @@ const App: React.FC = () => {
         <div className="calculator__grid">
           {calcs.map((calc) => <Calculator
             {...calc}
+            onNameUpdate={handleNameUpdate}
             onDelete={handleDeleteCalculator}
             key={calc.id}
           />)}
