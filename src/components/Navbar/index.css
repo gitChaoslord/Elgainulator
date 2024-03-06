@@ -1,0 +1,13 @@
+.navbar {
+  @apply flex;
+  @apply bg-red-900;
+  @apply px-4;
+}
+
+.navbar__title {
+  @apply py-2;
+}
+
+.navbar__actions {
+  @apply ml-auto;
+}

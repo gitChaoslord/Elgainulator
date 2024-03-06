@@ -1,7 +1,8 @@
 .language__switch {
   @apply px-2;
-  @apply bg-black;
+  @apply bg-transparent/50;
   @apply text-white;
+  @apply h-full;
 }
 
 .language__option.active {

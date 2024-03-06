@@ -1,11 +1,12 @@
 import LanguageSwitch from '@components/Language';
 import React from 'react';
+import "./index.css";
 
 const Navbar: React.FC = () => {
   return (
-    <header className="bg-red-900 py-2 px-4 flex">
-      <h1>Elgainulator 3000</h1>
-      <div className="ml-auto">
+    <header className="navbar">
+      <h1 className="navbar__title">Elgainulator 3000</h1>
+      <div className="navbar__actions">
         <LanguageSwitch />
       </div>
     </header>
