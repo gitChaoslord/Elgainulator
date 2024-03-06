@@ -1,0 +1,9 @@
+.language__switch {
+  @apply px-2;
+  @apply bg-black;
+  @apply text-white;
+}
+
+.language__option.active {
+  @apply border-r-red-900 text-white;
+}
