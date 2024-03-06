@@ -30,8 +30,6 @@ interface CalcActionClear {
   type: typeof ACTIONS.CLEAR;
 }
 
-
-
 export type CalcActionWithPayload = CalcAddDigit | CalcSelectOperation
 export type CalcActionWithoutPayload = CalcRemoveDigit | CalcActionPercent | CalcActionEval | CalcActionClear
 export type CalcAction = CalcActionWithPayload | CalcActionWithoutPayload

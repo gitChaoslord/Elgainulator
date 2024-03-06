@@ -8,6 +8,10 @@ body {
   background: #010200;
 }
 
+main {
+  @apply w-full px-4 py-2;
+}
+
 /* ################ */
 
 .calculator__grid {
@@ -28,25 +32,6 @@ body {
   @apply col-end-auto;
   @apply text-white;
   @apply hover:bg-red-900;
-}
-
-/* ################ */
-
-.toolbar {
-  @apply p-2;
-  @apply flex;
-  @apply text-white;
-}
-
-.toolbar__title {
-  @apply text-white;
-  @apply truncate;
-  @apply flex-grow;
-  @apply mr-2;
-}
-
-.toolbar__actions {
-  @apply flex gap-2 ml-1;
 }
 
 /* ################ */

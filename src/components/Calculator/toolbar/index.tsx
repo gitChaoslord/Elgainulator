@@ -1,5 +1,7 @@
 import React from 'react';
+import { BiCheck, BiEditAlt, BiX } from 'react-icons/bi';
 import { useCalculatorContext } from '../context';
+import "./index.css";
 
 interface PropTypes {
   onDelete: (id: string) => void;
@@ -31,21 +33,33 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete, onNameUpdate }) => {
     }
     onNameUpdate(id, newName);
     setIsEditing(false);
-  }
-
+  };
 
   return (
     <div className="toolbar">
 
       {isEditing ? <form className="min-w-0 flex-grow" onSubmit={handleSubmit}>
-        <label htmlFor="name"></label>
-        <input name="name" defaultValue={name} className="bg-black" placeholder="Calculator name" type="text" />
+        {/* <label htmlFor="name">name</label> */}
+        <input maxLength={maxNameLimit} autoFocus name="name" defaultValue={name} className="bg-black w-full" placeholder="Calculator name" type="text" />
         <button type="submit" className="hidden" />
       </form> : <h2 className="toolbar__title">{name}</h2>}
 
       <div className="toolbar__actions">
-        {isEditing ? <button onClick={() => setIsEditing(false)}>N</button> : <button onClick={() => setIsEditing(true)}>E</button>}
-        <button onClick={handleDelete}>X</button>
+
+        {isEditing && <button className="toolbar__action" onClick={() => setIsEditing(false)} title="Confirm">
+          <BiCheck />
+        </button>}
+
+        {!isEditing && <button className="toolbar__action" onClick={() => {
+          setIsEditing(true);
+        }} title="Edit">
+          <BiEditAlt />
+        </button>}
+
+        <button className="toolbar__action" onClick={handleDelete} title="Remove Calculator">
+          <BiX />
+        </button>
+
       </div>
     </div>
 
