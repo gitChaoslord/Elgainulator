@@ -1,4 +1,4 @@
-import { ACTIONS } from "./actions"
+import { ACTIONS } from "./actions";
 
 interface CalcAddDigit {
   type: typeof ACTIONS.ADD_DIGIT;
@@ -30,6 +30,21 @@ interface CalcActionClear {
   type: typeof ACTIONS.CLEAR;
 }
 
-export type CalcActionWithPayload = CalcAddDigit | CalcSelectOperation
+interface CalcUpdateName {
+  type: typeof ACTIONS.UPDATE_NAME;
+  payload: {
+    value: string
+  }
+}
+
+// TODO: update once more themes are dated
+interface CalcSelectTheme {
+  type: typeof ACTIONS.SELECT_THEME;
+  payload: {
+    value: "default"
+  }
+}
+
+export type CalcActionWithPayload = CalcAddDigit | CalcSelectOperation | CalcUpdateName | CalcSelectTheme
 export type CalcActionWithoutPayload = CalcRemoveDigit | CalcActionPercent | CalcActionEval | CalcActionClear
 export type CalcAction = CalcActionWithPayload | CalcActionWithoutPayload

@@ -4,7 +4,9 @@ import type { CalcAction } from "./types";
 export const defaultValues = {
   operation: "",
   currentOperand: "",
-  previousOperand: ""
+  previousOperand: "",
+  name: "New Calculator",
+  theme: "default"
 };
 
 function evaluate({ currentOperand, previousOperand, operation }: typeof defaultValues): string {
@@ -36,8 +38,6 @@ function evaluate({ currentOperand, previousOperand, operation }: typeof default
       computedValue = 0;
       break;
   }
-
-  console.log(currentOperand, previousOperand, operation, computedValue)
 
   return computedValue.toString()
 }
@@ -118,6 +118,15 @@ export function reducer(state: typeof defaultValues, action: CalcAction): typeof
         operation: "",
         currentOperand: evaluate(state)
       }
+
+    case ACTIONS.UPDATE_NAME:
+      return {
+        ...state,
+        name: action.payload.value
+      }
+
+    case ACTIONS.SELECT_THEME:
+      return state
 
     default:
       return state

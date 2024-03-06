@@ -1,37 +1,27 @@
 import React from 'react';
 import { BiCheck, BiEditAlt, BiX } from 'react-icons/bi';
+import { ACTIONS } from '../actions';
 import { useCalculatorContext } from '../context';
 import "./index.css";
 
 interface PropTypes {
   onDelete: (id: string) => void;
-  onNameUpdate: (id: string, name: string) => void;
 }
 
 const maxNameLimit = 30;
 
-const Toolbar: React.FC<PropTypes> = ({ onDelete, onNameUpdate }) => {
+const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
-  const { name, id } = useCalculatorContext();
+  const { name, id, dispatch } = useCalculatorContext();
 
   const handleDelete = () => onDelete(id);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const data = new FormData(e.currentTarget);
     const newName = data.get("name") as string;
-    if (newName === "") {
-      console.log("empty")
-      // TODO: popup/toast
-      return;
-    }
-    if (newName.length > maxNameLimit) {
-      console.log("many characters")
-      // TODO: popup/toast
-      return;
-    }
-    onNameUpdate(id, newName);
+    if (newName === "" || newName.length > maxNameLimit) return;
+    dispatch({ type: ACTIONS.UPDATE_NAME, payload: { value: newName } });
     setIsEditing(false);
   };
 
