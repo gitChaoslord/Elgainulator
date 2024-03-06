@@ -25,6 +25,15 @@
     "paths": {
       "@components/*": [
         "components/*"
+      ],
+      "@constants/*": [
+        "constants/*"
+      ],
+      "@locales/*": [
+        "locales/*"
+      ],
+      "@helpers/*": [
+        "helpers/*"
       ]
     }
   },

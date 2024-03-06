@@ -19,6 +19,18 @@ export default defineConfig({
         find: "@components",
         replacement: resolve(__dirname, "src/components"),
       },
+      {
+        find: "@constants",
+        replacement: resolve(__dirname, "src/constants"),
+      },
+      {
+        find: "@locales",
+        replacement: resolve(__dirname, "src/locales"),
+      },
+      {
+        find: "@helpers",
+        replacement: resolve(__dirname, "src/helpers"),
+      },
     ]
   })],
   define: {
