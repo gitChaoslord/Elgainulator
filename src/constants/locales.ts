@@ -32,7 +32,7 @@ const resourceSelector = ({ translation }: { translation: typeof import('../loca
 
 export const localeResources = Object.freeze(
   Object.entries(locales)
-    .filter(([_, value]) => !!value.translation)
+    .filter(([, value]) => !!value.translation)
     .reduce(
       (acc, [key, value]) => ({
         ...acc,
