@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { localeCodes, localeOptions, localeResources } from '@constants/locales';
+import { localeCodes, localeOptions } from '@constants/locales';
 import classNames from 'classnames';
 import "./index.css";
 
