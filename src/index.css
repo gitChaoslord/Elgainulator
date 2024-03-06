@@ -46,7 +46,7 @@ body {
 }
 
 .toolbar__actions {
-  @apply flex gap-2;
+  @apply flex gap-2 ml-1;
 }
 
 /* ################ */
@@ -80,8 +80,7 @@ body {
 
 .key {
   @apply text-xl;
-  /* @apply border border-white; */
-  @apply outline-none;
+  @apply outline focus:outline-red-900;
   @apply transition-colors duration-300;
   @apply bg-white/70 hover:bg-white/95;
   @apply active:bg-gray-600 active:text-[1.75rem];

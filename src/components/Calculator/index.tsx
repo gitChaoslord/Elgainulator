@@ -18,7 +18,7 @@ const Calculator: React.FC<PropTypes> = ({ id, name, theme, onDelete, onNameUpda
 
   return (
     <CalculatorContext.Provider value={{ id, name, theme, currentOperand, previousOperand, operation, dispatch }}>
-      <div className="calculator">
+      <div className="calculator" id={id}>
         <Toolbar onDelete={onDelete} onNameUpdate={onNameUpdate} />
         <Output />
         <KeyPad />

@@ -1,4 +1,5 @@
 import Calculator from '@components/Calculator'
+import Navbar from '@components/Navbar';
 import React from 'react'
 import { v4 } from "uuid";
 
@@ -28,7 +29,9 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
-      <header className="bg-red-900 p-2">Elgainulator 3000</header>
+
+      <Navbar />
+
       <main className="w-full px-4 py-2">
         <div className="calculator__grid">
           {calcs.map((calc) => <Calculator
@@ -44,6 +47,7 @@ const App: React.FC = () => {
 
         </div>
       </main>
+
     </React.Fragment>
   )
 }
