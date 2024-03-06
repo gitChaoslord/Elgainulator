@@ -35,6 +35,19 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete, onNameUpdate }) => {
     setIsEditing(false);
   };
 
+  // TODO: should handle select/focused calculator in the future
+
+  const handleEscPress = React.useCallback((e: KeyboardEvent) => {
+    if (isEditing && e.key === "Escape") setIsEditing(false);
+  }, [isEditing])
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleEscPress)
+    return () => {
+      document.removeEventListener("keydown", handleEscPress)
+    }
+  }, [handleEscPress])
+
   return (
     <div className="toolbar">
 
@@ -42,7 +55,7 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete, onNameUpdate }) => {
         {/* <label htmlFor="name">name</label> */}
         <input maxLength={maxNameLimit} autoFocus name="name" defaultValue={name} className="bg-black w-full" placeholder="Calculator name" type="text" />
         <button type="submit" className="hidden" />
-      </form> : <h2 className="toolbar__title">{name}</h2>}
+      </form> : <h2 className="toolbar__title" onDoubleClick={() => setIsEditing(true)}>{name}</h2>}
 
       <div className="toolbar__actions">
 
