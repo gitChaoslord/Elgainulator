@@ -1,6 +1,6 @@
 import React from 'react';
 import { ACTIONS } from '../actions';
-import { useCalculatorContext } from '../context';
+import { useCalculatorContext } from '../context/useContext';
 import { CalcAction } from '../types';
 import classNames from 'classnames';
 

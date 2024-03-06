@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCalculatorContext } from './context';
+import { useCalculatorContext } from './context/useContext';
 import { formatOperand } from '../../helpers/format';
 
 
