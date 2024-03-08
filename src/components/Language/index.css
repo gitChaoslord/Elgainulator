@@ -6,5 +6,5 @@
 }
 
 .language__option.active {
-  @apply border-r-red-900 text-white;
+  @apply border-r-yellow-500 text-white;
 }

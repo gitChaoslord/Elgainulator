@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
-  background: #010200;
+  @apply bg-black;
 }
 
 main {
@@ -15,31 +13,33 @@ main {
 /* ################ */
 
 .calculator__grid {
-  @apply grid;
+  @apply grid my-4;
   @apply auto-cols-fr auto-rows-fr;
   @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
-  @apply gap-2;
+  @apply gap-x-4 gap-y-6;
 }
 
 /* ################ */
 
 .calculator {
-  @apply border border-red-900;
+  @apply border rounded-md;
+  @apply bg-gray-600;
+  @apply overflow-hidden;
 }
 
 .calculator__new-btn {
-  @apply border border-white;
+  @apply border border-white rounded-md;
   @apply col-end-auto;
   @apply text-white;
-  @apply hover:bg-red-900;
+  @apply hover:bg-gray-500;
 }
 
 /* ################ */
 
 .output {
-  @apply h-16;
+  @apply h-20;
   @apply p-2;
-  @apply bg-black/90;
+  @apply bg-black/60;
   @apply flex flex-col;
   @apply break-all break-words;
   word-wrap: break-word;
@@ -52,20 +52,21 @@ main {
 
 .output .current__operand {
   @apply text-white;
-  @apply text-xl;
+  @apply text-2xl;
 }
 
 /* ################ */
 
 .keypad {
   @apply p-2;
-  @apply border-t-2 border-red-900;
+  @apply border-t-2 border-gray-500;
   @apply grid grid-cols-4 gap-1;
 }
 
 .key {
+  @apply rounded-md;
   @apply text-xl;
-  @apply outline focus:outline-red-900;
+  @apply focus:outline-gray-500;
   @apply transition-colors duration-300;
   @apply bg-white/70 hover:bg-white/95;
   @apply active:bg-gray-600 active:text-[1.75rem];

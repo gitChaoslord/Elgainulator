@@ -30,6 +30,7 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
     setIsEditing(false);
   }
 
+  // TODO: on click outside end edit save / cancel
   // TODO: should handle select/focused calculator in the future
 
   const handleEscPress = React.useCallback((e: KeyboardEvent) => {
@@ -46,9 +47,9 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
   return (
     <div className="toolbar">
 
-      {isEditing ? <form className="min-w-0 flex-grow align-middle" onSubmit={handleSubmit} ref={formRef}>
+      {isEditing ? <form className="min-w-0 flex-grow h-full" onSubmit={handleSubmit} ref={formRef}>
         <label htmlFor="name" className="hidden">name</label>
-        <input maxLength={maxNameLimit} autoFocus name="name" defaultValue={name} className="bg-black w-full outline-none" placeholder="Calculator name" type="text" />
+        <input maxLength={maxNameLimit} autoFocus name="name" defaultValue={name} className="bg-black/50 w-full outline-none" placeholder="Calculator name" type="text" />
         <button type="submit" className="hidden" />
       </form> : <h2 className="toolbar__title" onDoubleClick={() => setIsEditing(true)}>{name}</h2>}
 
