@@ -35,7 +35,10 @@
       "@helpers/*": [
         "helpers/*"
       ]
-    }
+    },
+    "types": [
+      "vite-plugin-pwa/client"
+    ],
   },
   "include": [
     "src"
@@ -44,5 +47,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
 }
