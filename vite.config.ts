@@ -9,6 +9,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/elgainulator/",
   plugins: [react(),
   VitePWA({
     injectRegister: 'auto',
@@ -28,25 +29,25 @@ export default defineConfig({
       start_url: "/",
       icons: [
         {
-          src: "/images/android-192x192.png",
+          src: "images/android-192x192.png",
           sizes: "192x192",
           type: "image/png",
           purpose: "any"
         },
         {
-          src: "/images/android-512x512.png",
+          src: "images/android-512x512.png",
           sizes: "512x512",
           type: "image/png",
           purpose: "any"
         },
         {
-          src: "/images/maskable-192x192.png",
+          src: "images/maskable-192x192.png",
           sizes: "192x192",
           type: "image/png",
           purpose: "maskable"
         },
         {
-          src: "/images/maskable-512x512.png",
+          src: "images/maskable-512x512.png",
           sizes: "512x512",
           type: "image/png",
           purpose: "maskable"
