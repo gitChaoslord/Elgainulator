@@ -81,6 +81,10 @@ export default defineConfig({
         find: "@helpers",
         replacement: resolve(__dirname, "src/helpers"),
       },
+      {
+        find: "@store",
+        replacement: resolve(__dirname, "src/store"),
+      }
     ]
   })],
   define: {
