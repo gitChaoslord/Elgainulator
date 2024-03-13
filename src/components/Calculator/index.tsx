@@ -1,38 +1,18 @@
 import React from 'react';
-import CalculatorContext from './context';
-import { defaultValues, reducer } from './reducer';
+import Toolbar from '../Calculator/toolbar';
+import Output from '../Calculator/output';
+import KeyPad from '../Calculator/keypad';
+import { Calculator as CalculatorType } from 'types/calculator';
 
-interface PropTypes {
+const Calculator: React.FC<({
   id: string;
-  children: React.ReactNode;
-}
-
-const getInitialState = (id: string): typeof defaultValues => {
-  try {
-    const items = localStorage.getItem(id);
-    return items ? JSON.parse(items) : defaultValues;
-  } catch (error) {
-    return defaultValues
-  }
-}
-
-const CalculatorProvider: React.FC<PropTypes> = ({ id, children }) => {
-  const [{ name, theme, currentOperand, previousOperand, operation }, dispatch] = React.useReducer(reducer, getInitialState(id));
-
-  React.useEffect(() => {
-    localStorage.setItem(id, JSON.stringify({ name, theme, currentOperand, previousOperand, operation }));
-  }, [id, name, theme, currentOperand, previousOperand, operation]);
-
-  React.useEffect(() => {
-    return () => {
-      localStorage.removeItem(id)
-    }
-  }, [id])
-
+  isSelected: boolean;
+} & CalculatorType)> = ({ name, id, type, previousOperand, currentOperand, operation, theme, isSelected }) => {
   return (
-    <CalculatorContext.Provider value={{ id, name, theme, currentOperand, previousOperand, operation, dispatch }}>
-      {children}
-    </CalculatorContext.Provider>
-  )
+    <div className="calculator" data-theme={theme} data-selected={isSelected} id={id}>
+      <Toolbar name={name} id={id} />
+      <Output previousOperand={previousOperand} currentOperand={currentOperand} operation={operation} />
+      <KeyPad type={type} id={id} />
+    </div>)
 }
-export default CalculatorProvider;
+export default Calculator;

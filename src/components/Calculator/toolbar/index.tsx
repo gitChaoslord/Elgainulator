@@ -1,21 +1,21 @@
+import { destroyCalculator, renameCalculator } from '@store/features/core';
+import { useAppDispatch } from '@store/index';
 import React from 'react';
 import { BiCheck, BiEditAlt, BiX } from 'react-icons/bi';
-import { ACTIONS } from '../actions';
-import { useCalculatorContext } from '../context/useContext';
 import "./index.css";
 
+const maxNameLimit = 30;
 interface PropTypes {
-  onDelete: (id: string) => void;
+  name: string;
+  id: string;
 }
 
-const maxNameLimit = 30;
-
-const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
+const Toolbar: React.FC<PropTypes> = ({ name, id }) => {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
-  const { name, id, dispatch } = useCalculatorContext();
   const formRef = React.useRef<HTMLFormElement>(null);
+  const dispatch = useAppDispatch();
 
-  const handleDelete = () => onDelete(id);
+  const handleDelete = () => dispatch(destroyCalculator(id));
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
   };
 
   const handleNameUpdate = (name: string) => {
-    dispatch({ type: ACTIONS.UPDATE_NAME, payload: { value: name } });
+    dispatch(renameCalculator({ id, name }));
     setIsEditing(false);
   }
 
@@ -35,7 +35,7 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
 
   const handleEscPress = React.useCallback((e: KeyboardEvent) => {
     if (isEditing && e.key === "Escape") setIsEditing(false);
-  }, [isEditing])
+  }, [isEditing]);
 
   React.useEffect(() => {
     document.addEventListener("keydown", handleEscPress)

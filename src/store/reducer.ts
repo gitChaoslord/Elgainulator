@@ -1,10 +1,10 @@
 import { Action, combineReducers } from "@reduxjs/toolkit";
 import settings from "@store/features/settings";
-import calculators from "@store/features/calculators";
+import core from "@store/features/core";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
 import type { SettingsState } from "types/settings";
-import type { CalculatorsState } from "types/calculators";
+import type { CoreState } from "types/core";
 
 const persistConfig = {
   key: 'elgainulator-',
@@ -13,12 +13,12 @@ const persistConfig = {
 }
 
 export default combineReducers({
-  calculators: persistReducer<CalculatorsState, Action>({
+  core: persistReducer<CoreState, Action>({
     ...persistConfig,
-    key: persistConfig.key + 'calculators',
+    key: persistConfig.key + 'core',
     // blacklist: [],
     // whitelist: []
-  }, calculators),
+  }, core),
   settings: persistReducer<SettingsState, Action>({
     ...persistConfig,
     key: persistConfig.key + 'settings',
