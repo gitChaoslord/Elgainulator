@@ -26,7 +26,7 @@ export default defineConfig({
       theme_color: "#EEEEEE",
       background_color: "#FFFFFF",
       display: "fullscreen",
-      start_url: "/",
+      start_url: "/elgainulator/",
       icons: [
         {
           src: "images/android-192x192.png",
