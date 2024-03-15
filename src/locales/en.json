@@ -1,3 +1,7 @@
 {
-  "ADD_CALCULATOR": "ADD CALCULATOR"
+  "ADD_CALCULATOR": "Add calculator",
+  "THEMES": {
+    "DEFAULT": "Default",
+    "SPACE": "Space"
+  }
 }

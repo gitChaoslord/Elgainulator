@@ -1,3 +1,7 @@
 {
-  "ADD_CALCULATOR": "PROSTHIKI"
+  "ADD_CALCULATOR": "Προσθήκη Αριθμομηχανής",
+  "THEMES": {
+    "DEFAULT": "Default",
+    "SPACE": "Space"
+  }
 }
