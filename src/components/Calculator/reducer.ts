@@ -71,7 +71,10 @@ export function reducer(state: typeof defaultValues, action: CalcAction): typeof
 
     case ACTIONS.CLEAR:
       return {
-        ...defaultValues,
+        ...state,
+        currentOperand: defaultValues.currentOperand,
+        previousOperand: defaultValues.previousOperand,
+        operation: defaultValues.operation
       }
 
     case ACTIONS.SELECT_OPERATION:
@@ -120,13 +123,17 @@ export function reducer(state: typeof defaultValues, action: CalcAction): typeof
       }
 
     case ACTIONS.UPDATE_NAME:
+      // TODO: utilize variable MAX_NAME_LIMIT
       return {
         ...state,
         name: action.payload.value
       }
 
     case ACTIONS.SELECT_THEME:
-      return state
+      return {
+        ...state,
+        theme: action.payload.value
+      }
 
     default:
       return state

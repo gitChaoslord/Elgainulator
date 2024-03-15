@@ -1,0 +1,25 @@
+.output {
+  @apply min-h-20;
+  @apply p-2;
+  @apply mx-2;
+  @apply rounded-md;
+  @apply flex flex-col;
+  @apply break-all break-words;
+  @apply bg-skin-fill;
+  @apply bg-black/50;
+  word-wrap: break-word;
+}
+
+.output .previous__operand {
+  @apply text-skin-output-muted;
+  @apply text-base;
+}
+
+.output .current__operand {
+  @apply text-skin-output-base;
+  @apply text-2xl;
+}
+
+.output .operator {
+  @apply text-skin-output-inverted;
+}

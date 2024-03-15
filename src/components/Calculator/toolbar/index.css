@@ -1,11 +1,17 @@
 .toolbar {
-  @apply pl-2;
+  @apply text-skin-toolbar-base;
+}
+
+.toolbar__top {
   @apply flex;
-  @apply text-white;
+}
+
+.toolbar__bottom {
+  @apply flex px-2;
 }
 
 .toolbar__title {
-  @apply text-white;
+  @apply pl-2;
   @apply truncate;
   @apply flex-grow;
   @apply mr-2;
@@ -14,10 +20,17 @@
 .toolbar__actions {
   @apply flex;
   @apply ml-1;
+
 }
 
 .toolbar__action {
+  @apply text-skin-toolbar-action;
+  @apply hover:text-skin-toolbar-action-hover;
+  @apply hover:bg-black/40;
   @apply text-lg;
   @apply px-2 py-1;
-  @apply hover:bg-gray-800;
+}
+
+.toolbar__action.close {
+  @apply hover:bg-red-500 hover:text-white;
 }

@@ -31,7 +31,12 @@ const CalculatorProvider: React.FC<PropTypes> = ({ id, children }) => {
 
   return (
     <CalculatorContext.Provider value={{ id, name, theme, currentOperand, previousOperand, operation, dispatch }}>
-      {children}
+      <div className="calculator"
+        data-theme={theme}
+        id={id}
+      >
+        {children}
+      </div>
     </CalculatorContext.Provider>
   )
 }

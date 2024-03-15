@@ -1,0 +1,36 @@
+.keypad {
+  @apply grid grid-cols-4 gap-1;
+  @apply text-xl font-semibold;
+  @apply p-2;
+}
+
+.key {
+  @apply h-8;
+  @apply rounded-md;
+  @apply transition-all duration-300;
+  @apply active:mt-1 active:h-7;
+  @apply shadow-key active:shadow-key-pressed;
+}
+
+.key.digit {
+  @apply bg-skin-key-digit;
+  @apply bg-skin-key-digit hover:bg-skin-key-digit/80 active:bg-skin-key-digit/60;
+}
+
+.key.operation {
+  @apply bg-skin-key-operation hover:bg-skin-key-operation/70;
+}
+
+.key.clear {
+  @apply col-span-2;
+  @apply bg-skin-key-clear hover:bg-skin-key-clear/70;
+}
+
+.key.del {
+  @apply bg-skin-key-del hover:bg-skin-key-del/70;
+}
+
+.key.eval {
+  @apply bg-skin-key-eval hover:bg-skin-key-eval/70;
+  @apply col-span-2;
+}

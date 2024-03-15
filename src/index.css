@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  :root {
+    --calc-toolbar-text: 255 255 255;
+    --calc-toolbar-text-action: 255 255 255;
+    --calc-toolbar-text-action-hover: 0 150 136;
+    --calc-output-text-base: 255 255 255;
+    --calc-output-text-muted: 255 255 255;
+    --calc-output-text-inverted: 180 225 255;
+    --calc-background: 24 32 52;
+    --calc-key-shadow: 25 25 25;
+    --calc-key-digit: 234 227 220;
+    --calc-key-operation: 234 227 220;
+    --calc-key-eval: 208 63 47;
+    --calc-key-del: 99 112 151;
+    --calc-key-clear: 99 112 151;
+  }
+
+  .calculator[data-theme="space"] {
+    /* #EBEBEB */
+    --calc-toolbar-text: 235 235 235;
+    /* #EBEBEB */
+    --calc-toolbar-text-action: 235 235 235;
+    /*  #FFB100 */
+    --calc-toolbar-text-action-hover: 255 177 0;
+    /* #EBEBEB */
+    --calc-output-text-base: 235 235 235;
+    /* #EBEBEB */
+    --calc-output-text-muted: 235 235 235;
+    /*  #FFB100 */
+    --calc-output-text-inverted: 255 177 0;
+    /* #384042 */
+    --calc-background: 56 64 66;
+    /* #181818 */
+    --calc-key-shadow: 70 70 70;
+    /* #E8E5DA */
+    --calc-key-digit: 232 229 218;
+    /* #FFB100 */
+    --calc-key-operation: 255 177 0;
+    /* #869498 */
+    --calc-key-eval: 134 148 152;
+    /* #F24236 */
+    --calc-key-del: 242 66 54;
+    /* #869498 */
+    --calc-key-clear: 134 148 152;
+  }
+}
+
 body {
   @apply bg-black;
 }
@@ -10,8 +58,6 @@ main {
   @apply w-full px-4 py-2;
 }
 
-/* ################ */
-
 .calculator__grid {
   @apply grid my-4;
   @apply auto-cols-fr auto-rows-fr;
@@ -19,12 +65,10 @@ main {
   @apply gap-x-4 gap-y-6;
 }
 
-/* ################ */
-
 .calculator {
-  @apply border rounded-md;
-  @apply bg-gray-600;
   @apply overflow-hidden;
+  @apply rounded-md;
+  @apply bg-skin-fill;
 }
 
 .calculator__new-btn {
@@ -33,47 +77,3 @@ main {
   @apply text-white;
   @apply hover:bg-gray-500;
 }
-
-/* ################ */
-
-.output {
-  @apply h-20;
-  @apply p-2;
-  @apply bg-black/60;
-  @apply flex flex-col;
-  @apply break-all break-words;
-  word-wrap: break-word;
-}
-
-.output .previous__operand {
-  @apply text-[#EBEBEB];
-  @apply text-base;
-}
-
-.output .current__operand {
-  @apply text-white;
-  @apply text-2xl;
-}
-
-/* ################ */
-
-.keypad {
-  @apply p-2;
-  @apply border-t-2 border-gray-500;
-  @apply grid grid-cols-4 gap-1;
-}
-
-.key {
-  @apply rounded-md;
-  @apply text-xl;
-  @apply focus:outline-gray-500;
-  @apply transition-colors duration-300;
-  @apply bg-white/70 hover:bg-white/95;
-  @apply active:bg-gray-600 active:text-[1.75rem];
-}
-
-.key.eval {
-  @apply bg-white/95 hover:bg-red-200;
-}
-
-/* ################ */

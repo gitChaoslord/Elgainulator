@@ -3,27 +3,28 @@ import { ACTIONS } from '../actions';
 import { useCalculatorContext } from '../context/useContext';
 import { CalcAction } from '../types';
 import classNames from 'classnames';
+import "./index.css";
 
 const standardKeyPad: { key: string; className?: string; action: CalcAction }[] = [
-  { key: "AC", className: "col-span-2", action: { type: ACTIONS.CLEAR } },
-  { key: "DEL", action: { type: ACTIONS.REMOVE_DIGIT } },
-  // { key: "%", action: { type: ACTIONS.PERCENT } },
-  { key: "÷", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "÷" } } },
-  { key: "7", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "7" } } },
-  { key: "8", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "8" } } },
-  { key: "9", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "9" } } },
-  { key: "x", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "x" } } },
-  { key: "4", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "4" } } },
-  { key: "5", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "5" } } },
-  { key: "6", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "6" } } },
-  { key: "-", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "-" } } },
-  { key: "1", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "1" } } },
-  { key: "2", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "2" } } },
-  { key: "3", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "3" } } },
-  { key: "+", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "+" } } },
-  { key: "0", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "0" } } },
-  { key: ".", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "." } } },
-  { key: "=", className: "eval", action: { type: ACTIONS.EVALUATE } }
+  { key: "AC", className: "action clear", action: { type: ACTIONS.CLEAR } },
+  { key: "DEL", className: "action del", action: { type: ACTIONS.REMOVE_DIGIT } },
+  // { key: "%" , className:"", action: { type: ACTIONS.PERCENT } },
+  { key: "÷", className: "operation", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "÷" } } },
+  { key: "7", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "7" } } },
+  { key: "8", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "8" } } },
+  { key: "9", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "9" } } },
+  { key: "x", className: "operation", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "x" } } },
+  { key: "4", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "4" } } },
+  { key: "5", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "5" } } },
+  { key: "6", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "6" } } },
+  { key: "-", className: "operation", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "-" } } },
+  { key: "1", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "1" } } },
+  { key: "2", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "2" } } },
+  { key: "3", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "3" } } },
+  { key: "+", className: "operation", action: { type: ACTIONS.SELECT_OPERATION, payload: { operation: "+" } } },
+  { key: "0", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "0" } } },
+  { key: ".", className: "digit", action: { type: ACTIONS.ADD_DIGIT, payload: { digit: "." } } },
+  { key: "=", className: "action eval", action: { type: ACTIONS.EVALUATE } }
 ];
 
 interface PropTypes {
@@ -37,7 +38,7 @@ const KeyPad: React.FC<PropTypes> = ({ type = "standard" }) => {
 
   return <div className="keypad">
     {type === 'standard' && standardKeyPad.map(({ key, className, action }) => (
-      <button key={key} className={classNames("key", className)} onClick={() => handleKeyPress(action)}>
+      <button role="button" key={key} className={classNames("key", className)} onClick={() => handleKeyPress(action)}>
         {key}
       </button>
     ))}

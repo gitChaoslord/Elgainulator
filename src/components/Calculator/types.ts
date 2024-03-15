@@ -41,7 +41,7 @@ interface CalcUpdateName {
 interface CalcSelectTheme {
   type: typeof ACTIONS.SELECT_THEME;
   payload: {
-    value: "default"
+    value: string;
   }
 }
 

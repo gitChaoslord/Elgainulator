@@ -39,11 +39,9 @@ const CalculatorGrid: React.FC = () => {
         id={calc.id}
         key={calc.id}
       >
-        <div className="calculator" id={calc.id}>
-          <Toolbar onDelete={handleDeleteCalculator} />
-          <Output />
-          <KeyPad />
-        </div>
+        <Toolbar onDelete={handleDeleteCalculator} />
+        <Output />
+        <KeyPad />
       </Calculator>)}
 
       {calcs.length < maxCalculators ? <NewCalculator onClick={handleAddCalculator} /> : null}
