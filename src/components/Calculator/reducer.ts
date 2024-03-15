@@ -6,7 +6,8 @@ export const defaultValues = {
   currentOperand: "",
   previousOperand: "",
   name: "New Calculator",
-  theme: "default"
+  theme: "default",
+  defaultValue: 0
 };
 
 function evaluate({ currentOperand, previousOperand, operation }: typeof defaultValues): string {
@@ -43,8 +44,22 @@ function evaluate({ currentOperand, previousOperand, operation }: typeof default
 }
 
 export function reducer(state: typeof defaultValues, action: CalcAction): typeof defaultValues {
-
   switch (action.type) {
+    
+    case ACTIONS.UPDATE_SETTINGS: {
+      const { theme, defaultValue } = action.payload;
+    
+      const newState = { ...state };
+      if (typeof theme === 'string') {
+        newState.theme = theme;
+      }
+    
+      if (typeof defaultValue === 'number') {
+        newState.defaultValue = defaultValue;
+      }
+    
+      return newState;
+    }
 
     case ACTIONS.ADD_DIGIT:
       // check overwrite
@@ -69,10 +84,14 @@ export function reducer(state: typeof defaultValues, action: CalcAction): typeof
         currentOperand: `${state.currentOperand.slice(0, -1)}`,
       }
 
-    case ACTIONS.CLEAR:
-      return {
-        ...defaultValues,
-      }
+      case ACTIONS.CLEAR:
+        return {
+          ...state,
+          currentOperand: state.defaultValue.toString(), // Reset to the default value
+          // Also reset any other parts of the state as needed, e.g., previousOperand, operation
+          previousOperand: "",
+          operation: " ",
+        };
 
     case ACTIONS.SELECT_OPERATION:
       if (state.currentOperand === "" && state.previousOperand === "") return state;

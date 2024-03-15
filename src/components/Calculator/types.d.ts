@@ -44,7 +44,16 @@ interface CalcSelectTheme {
     value: "default"
   }
 }
+interface CalcUpdateSettings {
+  type: typeof ACTIONS.UPDATE_SETTINGS;
+  payload: {
+    theme?: string;
+    defaultValue?: number;
+    beefUpValue?: number;
+  };
+}
+
 
 export type CalcActionWithPayload = CalcAddDigit | CalcSelectOperation | CalcUpdateName | CalcSelectTheme
 export type CalcActionWithoutPayload = CalcRemoveDigit | CalcActionPercent | CalcActionEval | CalcActionClear
-export type CalcAction = CalcActionWithPayload | CalcActionWithoutPayload
+export type CalcAction = CalcActionWithPayload | CalcActionWithoutPayload | CalcUpdateSettings

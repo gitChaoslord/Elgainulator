@@ -6,5 +6,6 @@ export const ACTIONS = {
   CLEAR: "clear",
   EVALUATE: "eval",
   UPDATE_NAME: "update_name",
-  SELECT_THEME: "select_theme"
+  SELECT_THEME: "select_theme",
+  UPDATE_SETTINGS: "update_settings",
 } as const;
