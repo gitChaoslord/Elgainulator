@@ -9,6 +9,17 @@ interface CalculatorInstance {
   previousOperand: string;
   operation: string;
   dispatch: React.Dispatch<CalcAction>;
+  state?: boolean;
+  isSwitchModeActive: boolean;
+  keypadConfig: Array<{
+    key: string;
+    action: {
+      type: string;
+      payload?: {
+        digit?: string;
+      };
+    };
+  }>;
 }
 
 const CalculatorContext = createContext<CalculatorInstance | null>(null);

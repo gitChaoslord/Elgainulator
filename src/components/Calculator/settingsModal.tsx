@@ -21,6 +21,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, children
           <button className="expand-collapse-btn" onClick={toggleExpand}>
             {isExpanded ? 'Collapse' : 'Expand'}
           </button>
+          <label htmlFor="switchKey">Switch Key Value:</label>
+            <input id="switchKey" name="switchKey" type="text" />
           <button className="close-modal" onClick={onClose}>Close</button>
         </div>
       </div>

@@ -53,7 +53,25 @@ interface CalcUpdateSettings {
   };
 }
 
+interface CalcToggleSwitchMode {
+  type: typeof ACTIONS.TOGGLE_SWITCH_MODE;
+}
+
+type UpdateKeypadConfigAction = {
+  type: typeof ACTIONS.UPDATE_KEYPAD_CONFIG;
+  payload: {
+    newConfig: Array<{
+      key: string;
+      action: {
+        type: string;
+        payload?: {
+          digit?: string;
+        };
+      };
+    }>;
+  };
+};
 
 export type CalcActionWithPayload = CalcAddDigit | CalcSelectOperation | CalcUpdateName | CalcSelectTheme
 export type CalcActionWithoutPayload = CalcRemoveDigit | CalcActionPercent | CalcActionEval | CalcActionClear
-export type CalcAction = CalcActionWithPayload | CalcActionWithoutPayload | CalcUpdateSettings
+export type CalcAction = CalcActionWithPayload | CalcActionWithoutPayload | CalcUpdateSettings | CalcToggleSwitchMode | UpdateKeypadConfigAction

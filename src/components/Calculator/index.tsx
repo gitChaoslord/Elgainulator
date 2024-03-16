@@ -17,22 +17,22 @@ const getInitialState = (id: string): typeof defaultValues => {
 }
 
 const CalculatorProvider: React.FC<PropTypes> = ({ id, children }) => {
-  const [{ name, theme, currentOperand, previousOperand, operation }, dispatch] = React.useReducer(reducer, getInitialState(id));
+  const [state, dispatch] = React.useReducer(reducer, getInitialState(id));
 
   React.useEffect(() => {
-    localStorage.setItem(id, JSON.stringify({ name, theme, currentOperand, previousOperand, operation }));
-  }, [id, name, theme, currentOperand, previousOperand, operation]);
+    localStorage.setItem(id, JSON.stringify(state));
+  }, [id, state]);
 
   React.useEffect(() => {
     return () => {
-      localStorage.removeItem(id)
+      localStorage.removeItem(id);
     }
-  }, [id])
+  }, [id]);
 
   return (
-    <CalculatorContext.Provider value={{ id, name, theme, currentOperand, previousOperand, operation, dispatch }}>
+    <CalculatorContext.Provider value={{ ...state,id ,dispatch }}>
       {children}
     </CalculatorContext.Provider>
-  )
+  );
 }
 export default CalculatorProvider;
