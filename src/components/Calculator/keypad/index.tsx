@@ -47,10 +47,10 @@ const switchKeyPad: { key: string; className?: string; action: CalcAction }[] = 
   { key: "=", className: "eval", action: { type: ACTIONS.EVALUATE } }
 ];
 
-const initialState = {
-  // Other state properties...
-  keypadConfig: switchKeyPad,
-};
+// const initialState = {
+//   // Other state properties...
+//   keypadConfig: switchKeyPad,
+// };
 
 // interface PropTypes {
 //   type?: "standard"

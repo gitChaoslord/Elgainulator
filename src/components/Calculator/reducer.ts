@@ -1,19 +1,19 @@
 import { ACTIONS } from "./actions";
 import type { CalcAction } from "./types";
 
-type KeypadButtonAction = {
-  type: string;
-  payload?: {
-    digit?: string;
-    // Add other payload properties as needed
-  };
-};
+// type KeypadButtonAction = {
+//   type: string;
+//   payload?: {
+//     digit?: string;
+//     // Add other payload properties as needed
+//   };
+// };
 
-type KeypadButton = {
-  key: string;
-  action: KeypadButtonAction;
-  className?: string; // Make className optional
-};
+// type KeypadButton = {
+//   key: string;
+//   action: KeypadButtonAction;
+//   className?: string; // Make className optional
+// };
 
 export const defaultValues = {
   operation: "",
@@ -81,11 +81,11 @@ function evaluate({ currentOperand, previousOperand, operation }: typeof default
 
 export function reducer(state: typeof defaultValues, action: CalcAction): typeof defaultValues {
   switch (action.type) {
-    case ACTIONS.UPDATE_KEYPAD_CONFIG:
-      return {
-        ...state,
-        keypadConfig: action.payload.newConfig,
-      };
+    // case ACTIONS.UPDATE_KEYPAD_CONFIG:
+    //   return {
+    //     ...state,
+    //     keypadConfig: action.payload.newConfig,
+    //   };
     case ACTIONS.TOGGLE_SWITCH_MODE:
       return {
         ...state,
