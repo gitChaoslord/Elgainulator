@@ -12,22 +12,22 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       i18next:
-        specifier: ^23.10.0
+        specifier: ^23.11.5
         version: 23.11.5
       i18next-browser-languagedetector:
-        specifier: ^7.2.0
+        specifier: ^7.2.1
         version: 7.2.1
       react:
-        specifier: ^18.2.0
+        specifier: ^18.3.1
         version: 18.3.1
       react-dom:
-        specifier: ^18.2.0
+        specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^14.0.5
+        specifier: ^14.1.2
         version: 14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-icons:
-        specifier: ^5.0.1
+        specifier: ^5.2.1
         version: 5.2.1(react@18.3.1)
       uuid:
         specifier: ^9.0.1
@@ -37,49 +37,49 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(rollup@2.79.1)
       '@types/node':
-        specifier: ^20.11.24
+        specifier: ^20.14.9
         version: 20.14.9
       '@types/react':
-        specifier: ^18.2.56
+        specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.19
+        specifier: ^18.3.0
         version: 18.3.0
       '@types/uuid':
         specifier: ^9.0.8
         version: 9.0.8
       '@typescript-eslint/eslint-plugin':
-        specifier: ^7.0.2
+        specifier: ^7.14.1
         version: 7.14.1(@typescript-eslint/parser@7.14.1(eslint@8.57.0)(typescript@5.5.2))(eslint@8.57.0)(typescript@5.5.2)
       '@typescript-eslint/parser':
-        specifier: ^7.0.2
+        specifier: ^7.14.1
         version: 7.14.1(eslint@8.57.0)(typescript@5.5.2)
       '@vitejs/plugin-react':
-        specifier: ^4.2.1
+        specifier: ^4.3.1
         version: 4.3.1(vite@5.3.2(@types/node@20.14.9)(terser@5.31.1))
       autoprefixer:
-        specifier: ^10.4.18
+        specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
       eslint:
-        specifier: ^8.56.0
+        specifier: ^8.57.0
         version: 8.57.0
       eslint-plugin-react-hooks:
-        specifier: ^4.6.0
+        specifier: ^4.6.2
         version: 4.6.2(eslint@8.57.0)
       eslint-plugin-react-refresh:
-        specifier: ^0.4.5
+        specifier: ^0.4.7
         version: 0.4.7(eslint@8.57.0)
       knip:
-        specifier: ^5.0.3
+        specifier: ^5.23.2
         version: 5.23.2(@types/node@20.14.9)(typescript@5.5.2)
       postcss:
-        specifier: ^8.4.35
+        specifier: ^8.4.38
         version: 8.4.38
       tailwindcss:
-        specifier: ^3.4.1
+        specifier: ^3.4.4
         version: 3.4.4
       typescript:
-        specifier: ^5.2.2
+        specifier: ^5.5.2
         version: 5.5.2
       vite:
         specifier: ^5.3.2
@@ -88,7 +88,7 @@ importers:
         specifier: ^0.6.4
         version: 0.6.4(eslint@8.57.0)(optionator@0.9.4)(typescript@5.5.2)(vite@5.3.2(@types/node@20.14.9)(terser@5.31.1))
       vite-plugin-pwa:
-        specifier: ^0.19.2
+        specifier: ^0.19.8
         version: 0.19.8(vite@5.3.2(@types/node@20.14.9)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0)
 
 packages:
