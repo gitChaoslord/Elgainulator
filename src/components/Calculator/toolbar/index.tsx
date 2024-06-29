@@ -77,7 +77,13 @@ const Toolbar: React.FC<PropTypes> = ({ onDelete }) => {
 
       <div className="toolbar__bottom">
         <select value={theme} className="capitalize bg-skin-fill" onChange={(e) => dispatch({ type: ACTIONS.SELECT_THEME, payload: { value: e.target.value } })}>
-          {THEME_OPTIONS.map(({ value, label, className }) => <option className={className} value={value}>{t(label)}</option>)}
+          {THEME_OPTIONS.map(({ value, label, className }) => <option
+            className={className}
+            value={value}
+            key={value}
+          >
+            {t(label)}
+          </option>)}
         </select>
       </div>
     </div>
