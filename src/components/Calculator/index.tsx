@@ -12,6 +12,7 @@ const getInitialState = (id: string): typeof defaultValues => {
     const items = localStorage.getItem(id);
     return items ? JSON.parse(items) : defaultValues;
   } catch (error) {
+    console.error(error)
     return defaultValues
   }
 }

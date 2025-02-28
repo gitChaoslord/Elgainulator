@@ -59,7 +59,9 @@ export default defineConfig({
     }
   }),
   checker({
-    typescript: true, eslint: {
+    typescript: true,
+     eslint: {
+      useFlatConfig: true,
       lintCommand: 'eslint "./src/**/*.{ts,tsx}"', // for example, lint .ts & .tsx
     },
   }),
